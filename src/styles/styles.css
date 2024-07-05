@@ -1,0 +1,575 @@
+/* General Styles */
+
+:root {
+    --background-dark: #2d3548;
+    --text-light: rgba(255, 255, 255, 0.6);
+    --text-lighter: rgba(255, 255, 255, 0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+}
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+body {
+    height: 100%;
+}
+
+/* Navbar Styles */
+.fixed-top {
+    transition: 0.5s;
+    background-color: #7F9F21;
+    border: 0;
+}
+
+.description{
+    font-size: 24px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Initially hide the sidebar off-screen on the right */
+    width: 250px;
+    height: 100vh; /* Adjust height as needed */
+    background-color: #1A5319;
+    z-index: 1002; /* Ensure it's above the navbar */
+    transition: right 0.3s ease; /* Smooth transition for visibility */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example box shadow */
+    color: white; /* Text color for sidebar items */
+}
+
+.sidebar a {
+    color: white; /* Text color for sidebar links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 24px;
+}
+
+.sidebar h5 {
+    color: white; /* Text color for sidebar links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 30px;
+}
+
+.sidebar a:hover {
+    color: #ccc; /* Adjust hover color if needed */
+}
+
+
+.fixed-top {
+    transition: 0.5s;
+    background-color: #7F9F21;
+    border: 0;
+    z-index: 1001; /* Ensure the navbar is below the sidebar */
+}
+
+  .sidebar.show {
+    right: 0; /* Show sidebar by moving it to the right */
+  }
+  
+  .sidebar-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .sidebar-close-btn:hover {
+    color: #7F9F21; /* Example hover color */
+  }
+  
+  
+.tokoTani-login-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    margin: auto;
+}
+.tokoTani-login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.tokoTani-login-header p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+.tokoTani-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+.tokoTani-divider::before, .tokoTani-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+.tokoTani-divider:not(:empty)::before {
+    margin-right: .25em;
+}
+.tokoTani-divider:not(:empty)::after {
+    margin-left: .25em;
+}
+.tokoTani-loginwith {
+    display: flex;
+    justify-content: space-between;
+}
+.tokoTani-loginwith button {
+    width: 48%;
+}
+.tokoTani-btn-primary {
+    background-color: #469C31;
+    color: #fff;
+    border: none;
+}
+.main-content {
+    border-radius: 1%;
+    background-color: #E8E3D1;
+grid-area: main;
+padding: 20px;
+}
+
+.earnings-info {
+background-color: #fdf8e2;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+font-family: Arial, sans-serif;
+}
+
+.earnings-info h2 {
+margin-bottom: 20px;
+font-size: 1.5em;
+color: #4a4a4a;
+}
+
+.earnings-details {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 1.2em;
+color: #4a4a4a;
+}
+
+.earnings-details div {
+text-align: center;
+}
+
+.earnings-details .pending {
+flex: 1;
+}
+
+.earnings-details .released {
+flex: 3;
+display: flex;
+justify-content: space-between;
+}
+
+.earnings-details p {
+margin: 5px 0;
+}
+
+.earnings-details .released p {
+margin-right: 20px;
+}
+
+.earnings-details .released div {
+flex: 1;
+text-align: center;
+}
+
+.earnings-details .vertical-line {
+width: 1px;
+height: 50px;
+background-color: #4a4a4a;
+margin: 0 20px;
+align-self: center;
+}
+
+.earnings-chart,
+.sales-volume-chart {
+background-color: #fdf8e2;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+margin-bottom: 20px;
+border: 2px solid #A3C250;
+}
+
+.earnings-chart h2,
+.sales-volume-chart h2 {
+margin-bottom: 20px;
+font-size: 1.5em;
+color: #4a4a4a;
+}
+
+.chart-container {
+width: 100%;
+max-width: 500px;
+margin: 0 auto;
+}
+
+.chart-period {
+display: flex;
+justify-content: center;
+margin-bottom: 10px;
+}
+
+.chart-period button {
+margin-right: 10px;
+padding: 5px 10px;
+border: 1px solid #A3C250;
+background-color: transparent;
+border-radius: 5px;
+font-size: 1em;
+color: #4a4a4a;
+cursor: pointer;
+}
+
+.chart-period .active {
+background-color: #A3C250;
+color: white;
+border: none;
+}
+
+.chart-legend {
+display: flex;
+justify-content: center;
+margin-bottom: 10px;
+}
+
+.chart-legend span {
+margin-right: 20px;
+font-size: 1em;
+color: #4a4a4a;
+}
+
+.legend-color {
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-right: 5px;
+}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+.main-content {
+padding: 30px;
+}
+
+.earnings-info, .earnings-chart, .sales-volume-chart {
+padding: 30px;
+}
+
+.chart-period button {
+margin-right: 15px;
+padding: 10px 15px;
+}
+
+.chart-period .active {
+padding: 10px 15px;
+}
+}
+
+/* New styles for AI Assistant section */
+.ai-assistant {
+    background-color: #fdf8e2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #4a4a4a;
+}
+
+.ai-assistant h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.ai-assistant ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.ai-assistant li {
+    margin-bottom: 10px;
+}
+
+.ai-assistant .product-category {
+    font-weight: bold;
+}
+
+.ai-assistant .product-info {
+    margin-left: 20px;
+}
+
+/* Media Queries */
+@media (min-width: 1024px) {
+    .main-content {
+        padding: 30px;
+    }
+
+    .earnings-info, .earnings-chart, .sales-volume-chart, .ai-assistant {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .earnings-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .earnings-details .pending, .earnings-details .released {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .chart-container {
+        max-width: 100%;
+    }
+
+    .earnings-info, .earnings-chart, .sales-volume-chart, .ai-assistant {
+        padding: 10px;
+    }
+
+    .chart-period button {
+        margin-right: 5px;
+        padding: 5px;
+    }
+}
+
+.dropdown-menu,
+.dropdown-item {
+  color: black; /* Set the text color to white */
+}
+
+.tokoTani-container2 {
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tokoTani-container2 .carousel-inner .carousel-item {
+    height: 100vh; /* Set each carousel item to fill the viewport height */
+}
+
+.tokoTani-container2 .carousel-inner .carousel-item img {
+    object-fit: cover; /* Ensure the image covers the carousel item */
+    width: 100%; /* Ensure the image fills the carousel item horizontally */
+    height: 100%; /* Ensure the image fills the carousel item vertically */
+}
+
+
+
+
+@media (min-width: 992px) {
+    .tokoTani-container2 {
+        display: block;
+    }
+}
+@media (max-width: 991.98px) {
+    .tokoTani-container2 {
+        display: none;
+    }
+}
+
+.seller-navbar-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Ensure this is higher than the z-index of main-content */
+  }
+  
+  
+  .main-content {
+    padding-top: 80px; /* Adjust this value to match the height of your navbar */
+  }
+
+  
+
+.product-image {
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+
+.topbar {
+    padding: 20px;
+    border-radius: 230px 100px;
+}
+
+.topbar .top-info {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link a {
+    letter-spacing: 1px;
+}
+
+.topbar .top-link a small:hover {
+    color: var(--bs-secondary) !important;
+    transition: 0.5s;
+}
+
+.topbar .top-link a small:hover i {
+    color: var(--bs-primary) !important;
+}
+
+/* Hero Header */
+.hero-header {
+    background-image: url('../assets/elaine-casap-qgHGDbbSNm8-unsplash.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-O {
+    text-align: center;
+    color: white;
+}
+
+/* Card Grid */
+.hero-section {
+    align-items: flex-start;
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+    padding: var(--spacing-xxl) var(--spacing-l);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: var(--spacing-l);
+    grid-row-gap: var(--spacing-l);
+    max-width: var(--width-container);
+    width: 100%;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the entire space of the container */
+  }
+
+@media (min-width: 540px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    list-style: none;
+    position: relative;
+}
+
+.card:before {
+    content: '';
+    display: block;
+    padding-bottom: 150%;
+    width: 100%;
+}
+
+.card__background {
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--spacing-l);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    transform: scale(1) translateZ(0);
+    transition: filter 200ms linear, transform 200ms linear;
+}
+
+.card:hover .card__background {
+    transform: scale(1.05) translateZ(0);
+}
+
+
+.card__content {
+    left: 0;
+    padding: var(--spacing-l);
+    position: absolute;
+    top: 0;
+}
+
+.card__category {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-s);
+    text-transform: uppercase;
+}
+
+.card__heading {
+    color: var(--text-lighter);
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+}
+
+/* FontAwesome Icon Color */
+.navbar-toggler .text-primary {
+    color: white !important; /* Ensure the navbar toggler icon is white */
+}
+
+.dropdown-item {
+    color: white; /* Ensure dropdown item text is white */
+}
