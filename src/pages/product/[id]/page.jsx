@@ -13,7 +13,7 @@ function ProductDetailsPage() {
     const fetchProduct = async () => {
       try {
         // Construct the API endpoint URL with productId
-        const response = await axios.get(`http://localhost:3330/api/products/${id}`);
+        const response = await axios.get(`https://toko-tani-server-2.vercel.app/localhost:3330/api/products/${id}`);
         // Assuming response.data is the product object
         setProduct(response.data);
       } catch (error) {
