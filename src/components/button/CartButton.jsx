@@ -16,7 +16,7 @@ export default function CartButton({ productId, userId, quantity }) {
     };
 
     const response = axios.post(
-      "https://toko-tani-server-2.vercel.app//api/products/cart",
+      "https://toko-tani-server-2.vercel.app/api/products/cart",
       requestData
     )
       .then((response) => {

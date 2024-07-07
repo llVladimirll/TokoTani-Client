@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import RegisterForm from "../../components/form/RegisterForm";
 import LoginForm from "../../components/form/LoginForm"; // Import LoginForm
 import Slideshow from "../../components/Slideshow";
+import { decodeJwt } from "../../utils/jwtUtils";
 
 const RegisterPage = () => {
   const location = useLocation(); 
@@ -61,11 +62,21 @@ const RegisterPage = () => {
         formData
       );
 
+      console.log('Server response:', response.data); // Add this line
+
       if (isLogin) {
         const { userToken, sellerToken } = response.data; // Assuming the response contains the role
 
+        console.log('User token:', userToken); // Add this line
+        console.log('Seller token:', sellerToken); // Add this line
+
         localStorage.setItem("userToken", userToken);
-        localStorage.setItem("sellerToken", sellerToken);
+        const token = localStorage.getItem("userToken");
+        const decodedToken = decodeJwt(token);
+        if (decodedToken.isSeller){
+          localStorage.setItem("sellerToken", sellerToken);
+        }
+        
         
         console.log("Login successful:", response.data);
         navigate('/');

@@ -4,56 +4,85 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignInAlt, faSearch, faBars, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { decodeJwt, checkJwtExpiration } from '../../utils/jwtUtils';
 import Dropdown from 'react-bootstrap/Dropdown';
+import axios from 'axios';
 
 function Navbar() {
   const [userToken, setUserToken] = useState(null);
   const [isSeller, setIsSeller] = useState(false);
+  const [userId, setUserId] = useState(null);
   const [searchInput, setSearchInput] = useState('');
+  const [itemCount, setItemCount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('userToken');
     if (token) {
-      setUserToken(token);
       const decodedToken = decodeJwt(token);
-      if (decodedToken) {
-        setIsSeller(decodedToken.isSeller);
-        if (!checkJwtExpiration(token)) {
-          handleLogout();
-        }
-      } else {
-        console.error("Failed to decode token.");
+      setUserToken(token);
+      setUserId(decodedToken.userID);
+      if (!checkJwtExpiration(token)) {
+        handleLogout();
       }
     }
   }, []);
 
-  function handleSearch() {
-    navigate(`/product?search=${encodeURIComponent(searchInput)}`);
-  }
+  useEffect(() => {
+    const sellerToken = localStorage.getItem('sellerToken');
+    if (sellerToken) {
+      setIsSeller(true);
+    } else {
+      setIsSeller(false);
+    }
+  }, []);
 
-  function handleKeyPress(event) {
+  useEffect(() => {
+    if (userId) {
+      fetchCartItems();
+    }
+  }, [userId]);
+
+  const fetchCartItems = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3330/api/users/cart/${userId}`);
+      if (response.data && response.data.itemCount !== undefined) {
+        setItemCount(response.data.itemCount);
+      } else {
+        console.error('Unexpected response format:', response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+    }
+  };
+
+  const handleSearch = () => {
+    navigate(`/product?search=${encodeURIComponent(searchInput)}`);
+  };
+
+  const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleSearch();
     }
-  }
+  };
 
-  function handleLogout() {
+  const handleLogout = () => {
     localStorage.removeItem('userToken');
+    localStorage.removeItem('sellerToken');
     setUserToken(null);
+    setUserId(null);
     setIsSeller(false);
-  }
+  };
 
-  function handleProfileClick() {
+  const handleProfileClick = () => {
     if (isSeller) {
       navigate('/seller/dashboard');
     } else {
       navigate('/seller/register');
     }
-  }
+  };
 
-  function handleProfileNavigate() {
+  const handleProfileNavigate = () => {
     navigate('/profile');
-  }
+  };
 
   return (
     <div className="container-fluid fixed-top">
@@ -95,12 +124,13 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse bg-M" id="navbarCollapse">
             <div className="d-flex ms-auto m-3 me-0">
-              <Link
-                to="/checkout"
-                id="shopping-bag-link"
-                className="position-relative me-4 my-auto"
-              >
+              <Link to="/cart" id="shopping-bag-link" className="position-relative me-4 my-auto">
                 <FontAwesomeIcon icon={faShoppingBag} style={{ color: 'white' }} size="2x" />
+                {itemCount > 0 && (
+                  <span className="badge bg-primary rounded-circle position-absolute top-0 start-100 translate-middle">
+                    {itemCount}
+                  </span>
+                )}
               </Link>
               <Dropdown className="my-auto">
                 {userToken ? (

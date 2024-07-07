@@ -1,0 +1,21 @@
+.profile-page {
+  display: flex;
+}
+
+.nav-pills .nav-link {
+  margin-bottom: 1rem;
+  border-radius: 0;
+  text-align: left;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.tab-content {
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+}
+

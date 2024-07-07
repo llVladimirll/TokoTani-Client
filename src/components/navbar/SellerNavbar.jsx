@@ -61,7 +61,7 @@ export default function SellerNavbar() {
           <Nav.Link href="/seller/dashboard">Dashboard</Nav.Link>
           <Nav.Link href="/seller/product">My Products </Nav.Link>
           <Nav.Link href="/seller/add-product">Add Product</Nav.Link>
-          <Nav.Link href="/seller/Orders">Orders</Nav.Link>
+          <Nav.Link href="/seller/order">Orders</Nav.Link>
         </Nav>
       </div>
     </>

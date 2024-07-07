@@ -36,7 +36,8 @@ export default function EarningsChart({ sellerId }) {
       console.log("Raw response data:", data);
 
       if (!Array.isArray(data) || data.length === 0 || !data[0].period || !data[0].total) {
-        throw new Error("Invalid data received from the server.");
+        // Return empty data if no valid data received
+        return { labels: [], data: [] };
       }
 
       let labels = [];
@@ -90,9 +91,13 @@ export default function EarningsChart({ sellerId }) {
   async function updateChart(period) {
     try {
       const { labels, data } = await fetchData(period);
-      earningsChart.data.labels = labels;
-      earningsChart.data.datasets[0].data = data;
-      earningsChart.update();
+
+      // Update chart only if there's valid data
+      if (earningsChart) {
+        earningsChart.data.labels = labels;
+        earningsChart.data.datasets[0].data = data;
+        earningsChart.update();
+      }
 
       document
         .querySelectorAll(".chart-period button")
