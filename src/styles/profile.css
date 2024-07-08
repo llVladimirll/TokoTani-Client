@@ -1,21 +1,194 @@
-.profile-page {
+
+.profile-container {
   display: flex;
+  width: 100%;
+  padding-top: 80px; 
 }
 
-.nav-pills .nav-link {
-  margin-bottom: 1rem;
-  border-radius: 0;
-  text-align: left;
+.profile-main-content {
+  padding: 20px;
+  width: 80%;
 }
 
-.nav-pills .nav-link.active {
-  background-color: #007bff;
-  color: white;
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.tab-content {
-  padding: 1rem;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+.address-header h2 {
+  margin: 0;
+  color: #333;
 }
+
+.add-address {
+  padding: 10px 20px;
+  background-color: #469C31;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.add-address:hover {
+  background-color: #3a7a29;
+}
+
+.address-list {
+  margin-top: 20px;
+}
+
+.address-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.address-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+.address-item h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.address-item p {
+  margin: 0 0 20px;
+  color: #555;
+}
+
+.address-item.main {
+  border-color: #469C31;
+}
+
+.actions {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 10px;
+  border: none;
+  background-color: #f0f2f5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.actions button i {
+  font-size: 16px;
+  color: #333;
+}
+
+.actions .main-address {
+  background-color: #469C31;
+  color: #fff;
+}
+
+.actions button:hover {
+  background-color: #469C31;
+  color: #fff;
+}
+
+.add-address-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-address-bottom .add-address {
+  padding: 15px 25px;
+}
+
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.edit-button,
+.save-button {
+  padding: 10px 20px;
+  background-color: #469C31;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.save-button:hover {
+  background-color: #3a7a29;
+}
+
+.profile-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form .form-group {
+  margin-bottom: 20px;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-form .form-control {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: #555;
+  display: inline-block;
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+}
+
+.profile-form .form-control[readonly] {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+.profile-form .form-control.editable {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+
+
 

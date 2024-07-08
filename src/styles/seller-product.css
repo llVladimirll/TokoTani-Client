@@ -1,0 +1,108 @@
+body {
+    font-family: "Manrope", "Poppins", sans-serif;
+    background-color: #f5f5f5;
+  }
+  .special-order-item {
+    background-color: #fff3e0;
+    border: 1px solid #2196f3;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+  .special-order-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+  }
+  .special-order-details {
+    flex: 1;
+    margin-left: 15px;
+  }
+  .special-order-details h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .special-order-details p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #666;
+  }
+  .special-order-actions {
+    display: flex;
+    align-items: center;
+  }
+  .special-order-actions i {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #8bc34a;
+    cursor: pointer;
+  }
+  .special-order-actions button:hover {
+    color: #666;
+  }
+
+  /* seller-product.css */
+.special-order-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.special-order-actions .action-button {
+  background-color: #8bc34a; /* Change to desired background color */
+  color: white; /* Change to desired text color */
+  border: none;
+  padding: 10px 15px; /* Adjust padding for larger buttons */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.special-order-actions .action-button:hover {
+  background-color: #0056b3; /* Change to desired hover color */
+}
+
+.special-order-actions .action-button i {
+  margin-right: 5px;
+}
+
+.special-order-item img {
+  max-width: 100%; /* Ensure image fits within the container */
+  height: auto;
+}
+
+.special-order-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.special-order-details h5,
+.special-order-details p {
+  margin: 10px 0;
+}
+
+
+  /* Media Queries */
+  @media (max-width: 767.98px) {
+    .special-order-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .special-order-item img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    .special-order-details {
+      margin-left: 0;
+    }
+    .special-order-actions {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }

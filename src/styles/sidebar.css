@@ -1,0 +1,39 @@
+.custom-sidebar {
+    background-color: #fff;
+    padding: 20px;
+    width: 20%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.custom-sidebar h2 {
+    margin-top: 0;
+    color: #469C31;
+}
+
+.custom-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+.custom-sidebar ul li {
+    margin: 20px 0;
+}
+
+.custom-sidebar ul li button {
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.custom-sidebar ul li a:hover {
+    color: #469C31;
+}
+
+.custom-sidebar ul li.active a {
+    color: #469C31;
+}

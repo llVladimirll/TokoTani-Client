@@ -13,6 +13,7 @@ import OrderPage from './pages/order/page.jsx';
 import SellerPage from './pages/sellerRegister/page.jsx'
 import ProfilePage from './pages/profile/page.jsx';
 import AddProductPage from './pages/add-product/page.jsx';
+import SellerProductPage from './pages/seller-product/page.jsx';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/seller/register' element={<SellerPage />} />
                 <Route path='/seller/order' element={<OrderPage />} />
                 <Route path='/seller/add-product' element={<AddProductPage />} />
+                <Route path='/seller/product' element={<SellerProductPage />} />
               </Routes>
             </div>
       </BrowserRouter>

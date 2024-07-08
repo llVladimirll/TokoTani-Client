@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 const SellerForm = ({ userId }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -65,7 +66,7 @@ const SellerForm = ({ userId }) => {
 
   return (
     <div className="container mt-5">
-      <div className="card shadow-lg p-3 mb-5 bg-body rounded">
+      <div className="shadow-lg p-3 mb-5 bg-body rounded">
         <div className="card-header">
           <h3 className="text-center mb-4">Seller Registration</h3>
         </div>

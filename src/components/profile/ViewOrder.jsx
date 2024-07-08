@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import OrderCard from "./OrderCard";
+import '../../styles/order.css'
 
 const ViewOrders = ({ userId }) => {
   const [orders, setOrders] = useState([]);
@@ -9,7 +10,11 @@ const ViewOrders = ({ userId }) => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(`http://localhost:3330/api/users/orders/${userId}`);
-      setOrders(response.data);
+      const ordersWithDetails = response.data.map(order => ({
+        ...order,
+        showDetails: false  // Initialize showDetails for each order
+      }));
+      setOrders(ordersWithDetails);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -32,47 +37,32 @@ const ViewOrders = ({ userId }) => {
     }
   };
 
+  const toggleDetails = (orderId) => {
+    const updatedOrders = orders.map(order =>
+      order.order_id === orderId ? { ...order, showDetails: !order.showDetails } : order
+    );
+    setOrders(updatedOrders);
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
 
   return (
-    <div>
-      <h2>Your Orders</h2>
-      {orders.length === 0 ? (
-        <p>No orders found.</p>
-      ) : (
-        <ul className="list-group">
-          {orders.map((order) => (
-            <li key={order.id} className="list-group-item">
-              <strong>Order ID:</strong> {order.id}<br />
-              <strong>Status:</strong> {order.status}<br />
-              <strong>Total:</strong> {order.total}<br />
-              <strong>Items:</strong>
-              <ul>
-                {order.items ? (
-                  order.items.map((item) => (
-                    <li key={item.product_id}>
-                      {item.product_name} - Quantity: {item.quantity}
-                    </li>
-                  ))
-                ) : (
-                  <p>No items found.</p>
-                )}
-              </ul>
-              {order.status === "shipping product" && (
-                <button
-                  className="btn btn-primary"
-                  onClick={() => completeOrder(order.id)}
-                >
-                  Complete Order
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <main className="profile-main-content">
+      <header className="orders-header">
+        <h2>Orders</h2>
+      </header>
+      <section className="orders-list">
+        {orders.map(order => (
+          <OrderCard
+            key={order.order_id}
+            order={order}
+            toggleDetails={() => toggleDetails(order.order_id)}
+          />
+        ))}
+      </section>
+    </main>
   );
 };
 

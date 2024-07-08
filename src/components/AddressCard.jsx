@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as regularStar, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faStar as solidStar } from '@fortawesome/fontawesome-svg-core';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/customCard.css';  // Import custom CSS
+
 
 const AddressCard = ({ address }) => {
   const { address_line1, address_line2, city, province, postal_code, country } = address;

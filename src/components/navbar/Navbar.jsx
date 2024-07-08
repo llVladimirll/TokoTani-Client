@@ -70,6 +70,7 @@ function Navbar() {
     setUserToken(null);
     setUserId(null);
     setIsSeller(false);
+    window.location.reload();
   };
 
   const handleProfileClick = () => {

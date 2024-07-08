@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SellerForm from "../../components/form/SellerForm";
 import { decodeJwt } from "../../utils/jwtUtils";
 
+
 function SellerPage() {
   const [userId, setUserId] = useState(null);
 

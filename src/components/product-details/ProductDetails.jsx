@@ -5,6 +5,7 @@ import { checkJwtExpiration, decodeJwt } from "../../utils/jwtUtils";
 import Review from "./Review";
 import CartButton from "../button/CartButton";
 import ChatButton from "../button/ChatButton";
+import ReviewForm from "./ReviewForm";
 
 export default function ProductDetails({ product }) {
   const [quantity, setQuantity] = useState(1);
@@ -123,7 +124,7 @@ export default function ProductDetails({ product }) {
                 <Review reviews={product.feedback} />
               </div>
               <div id="formContainer">
-                {/* Add review form here */}
+                <ReviewForm userId={userId} productId={product.id} />
               </div>
             </div>
           </div>
