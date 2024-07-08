@@ -9,7 +9,7 @@ const ViewOrders = ({ userId }) => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get(`http://localhost:3330/api/users/orders/${userId}`);
+      const response = await axios.get(`https://toko-tani-server-2.vercel.app/api/users/orders/${userId}`);
       const ordersWithDetails = response.data.map(order => ({
         ...order,
         showDetails: false  // Initialize showDetails for each order
@@ -28,7 +28,7 @@ const ViewOrders = ({ userId }) => {
 
   const completeOrder = async (orderId) => {
     try {
-      const response = await axios.put(`http://localhost:3330/api/orders/${orderId}/complete`);
+      const response = await axios.put(`https://toko-tani-server-2.vercel.app/api/orders/${orderId}/complete`);
       console.log("Order completed successfully:", response.data);
       // Refresh orders after completing order
       fetchOrders();

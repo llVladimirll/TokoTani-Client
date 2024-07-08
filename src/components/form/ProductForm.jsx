@@ -36,7 +36,7 @@ export default function ProductForm({ sellerId }) {
     formData.set("price", numericPrice);
 
     try {
-      const response = await axios.post(`http://localhost:3330/api/products/${sellerId}`, formData, {
+      const response = await axios.post(`https://toko-tani-server-2.vercel.app/api/products/${sellerId}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

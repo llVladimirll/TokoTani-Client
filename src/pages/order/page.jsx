@@ -12,7 +12,7 @@ export default function OrderPage() {
     async function fetchOrders() {
       try {
         const response = await axios.get(
-          `http://localhost:3330/api/sellers/orders/${sellerId}`
+          `https://toko-tani-server-2.vercel.app/api/sellers/orders/${sellerId}`
         );
         setOrders(response.data);
       } catch (error) {

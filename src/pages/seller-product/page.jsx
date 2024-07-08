@@ -19,7 +19,7 @@ function SellerProductPage() {
   useEffect(() => {
     if (sellerId) {
       setLoading(true);
-      axios.get(`http://localhost:3330/api/sellers/products/${sellerId}`)
+      axios.get(`https://toko-tani-server-2.vercel.app/api/sellers/products/${sellerId}`)
         .then(response => {
           setProducts(response.data);
           setLoading(false);

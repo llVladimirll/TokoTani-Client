@@ -22,7 +22,7 @@ const AddAddress = ({ userId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:3330/api/users/${userId}/address`, formData);
+      await axios.post(`https://toko-tani-server-2.vercel.app/api/users/${userId}/address`, formData);
       alert("Address added successfully!");
       setFormData({
         address_line1: "",

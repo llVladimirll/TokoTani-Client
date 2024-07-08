@@ -8,7 +8,7 @@ export default function DeleteButton({ productId, onDelete }) {
     const confirmed = window.confirm("Are you sure you want to delete this product?");
     if (confirmed) {
       try {
-        await axios.delete(`http://localhost:3330/api/products/${productId}`);
+        await axios.delete(`https://toko-tani-server-2.vercel.app/api/products/${productId}`);
         onDelete(productId); // Notify parent component to update state
       } catch (error) {
         console.error("Error deleting product:", error);

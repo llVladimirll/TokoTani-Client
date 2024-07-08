@@ -19,7 +19,7 @@ export default function CartItem({ product, userId, onUpdateCart }) {
     const newQuantity = product.quantity + 1;
     try {
       await axios.put(
-        `http://localhost:3330/api/products/cart/${userId}/${product.product_id}`,
+        `https://toko-tani-server-2.vercel.app/api/products/cart/${userId}/${product.product_id}`,
         {
           quantity: newQuantity,
         }
@@ -35,7 +35,7 @@ export default function CartItem({ product, userId, onUpdateCart }) {
       const newQuantity = product.quantity - 1;
       try {
         await axios.put(
-          `http://localhost:3330/api/products/cart/${userId}/${product.product_id}`,
+          `https://toko-tani-server-2.vercel.app/api/products/cart/${userId}/${product.product_id}`,
           {
             quantity: newQuantity,
           }
@@ -50,7 +50,7 @@ export default function CartItem({ product, userId, onUpdateCart }) {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:3330/api/products/cart/${userId}/${product.product_id}`
+        `https://toko-tani-server-2.vercel.app/api/products/cart/${userId}/${product.product_id}`
       );
       onUpdateCart(); // Update cart items in parent component
     } catch (error) {

@@ -11,7 +11,7 @@ const ViewAddresses = ({ userId }) => {
   useEffect(() => {
     const fetchAddresses = async () => {
       try {
-        const response = await axios.get(`http://localhost:3330/api/users/address/${userId}`);
+        const response = await axios.get(`https://toko-tani-server-2.vercel.app/api/users/address/${userId}`);
         setAddresses(response.data);
       } catch (error) {
         console.error("Error fetching addresses:", error);
@@ -37,7 +37,7 @@ const ViewAddresses = ({ userId }) => {
     };
 
     try {
-      const response = await axios.post(`http://localhost:3330/api/users/address/${userId}`, {
+      const response = await axios.post(`https://toko-tani-server-2.vercel.app/api/users/address/${userId}`, {
         userId,
         ...newAddress,
       });

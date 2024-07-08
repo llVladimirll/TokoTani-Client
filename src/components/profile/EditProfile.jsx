@@ -10,7 +10,7 @@ const EditProfile = ({ userId }) => {
     const fetchUserData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3330/api/users/${userId}`);
+        const response = await axios.get(`https://toko-tani-server-2.vercel.app/api/users/${userId}`);
         const { name, email } = response.data;
         setFormData({ name, email });
         setLoading(false);
@@ -40,7 +40,7 @@ const EditProfile = ({ userId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3330/api/users/${userId}`, formData);
+      await axios.put(`https://toko-tani-server-2.vercel.app/api/users/${userId}`, formData);
       alert("Profile updated successfully!");
       setEditing(false);
     } catch (error) {

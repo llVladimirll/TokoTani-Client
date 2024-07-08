@@ -17,7 +17,7 @@ const OrderSummary = ({ order, toggleDetails }) => {
   const handleCompleteOrder = async (orderId) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3330/api/users/order/${orderId}`,
+        `https://toko-tani-server-2.vercel.app/api/users/order/${orderId}`,
         {}
       );
       alert(response.data.message); 

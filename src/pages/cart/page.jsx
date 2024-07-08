@@ -22,7 +22,7 @@ function CartPage() {
       const userID = decodedToken.userID;
 
       const response = await axios.get(
-        `http://localhost:3330/api/products/cart/${userID}`
+        `https://toko-tani-server-2.vercel.app/api/products/cart/${userID}`
       );
       setCartItems(response.data.cartItems || []);
       setLoadingCart(false);

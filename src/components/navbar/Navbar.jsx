@@ -43,7 +43,7 @@ function Navbar() {
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get(`http://localhost:3330/api/users/cart/${userId}`);
+      const response = await axios.get(`https://toko-tani-server-2.vercel.app/api/users/cart/${userId}`);
       if (response.data && response.data.itemCount !== undefined) {
         setItemCount(response.data.itemCount);
       } else {

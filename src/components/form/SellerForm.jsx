@@ -44,7 +44,7 @@ const SellerForm = ({ userId }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3330/api/sellers/${userId}`,
+        `https://toko-tani-server-2.vercel.app/api/sellers/${userId}`,
         formDataObj,
         {
           headers: {

@@ -5,7 +5,7 @@ export default function ShipButton({ orderId }) {
     const handleShipButtonClick = async () => {
         try {
           const response = await axios.patch(
-            `http://localhost:3330/api/sellers/ship/${orderId}`,
+            `https://toko-tani-server-2.vercel.app/api/sellers/ship/${orderId}`,
             {}  // Empty object as request body
           );
           alert(response.data.message); 
