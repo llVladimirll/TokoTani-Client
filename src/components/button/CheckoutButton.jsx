@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CheckoutModals from "../modals/CheckoutModals";
+import CheckoutModal from "../modals/CheckoutModals"; // Assuming it's a singular modal component
 
 export default function CheckoutButton({ checkedItems, userId, addressId }) {
   const [showModal, setShowModal] = useState(false);
@@ -37,10 +37,11 @@ export default function CheckoutButton({ checkedItems, userId, addressId }) {
         type="button"
         id="checkout"
         onClick={handleCheckout}
+        disabled={!addressId} // Disable button if no address is selected
       >
-        Proceed Checkout
+        Proceed to Checkout
       </button>
-      {showModal && <CheckoutModals showModal={showModal} />}
+      {showModal && <CheckoutModal showModal={showModal} />}
     </>
   );
 }
