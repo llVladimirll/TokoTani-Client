@@ -7,7 +7,7 @@ export default function EditButton({ productId }) {
   const navigate = useNavigate();
 
   const handleEdit = () => {
-    navigate(`/seller/product/${productId}`);
+    navigate(`/seller/edit-product/${productId}`);
   };
 
   return (

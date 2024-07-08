@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import RegisterForm from "../../components/form/RegisterForm";
-import LoginForm from "../../components/form/LoginForm"; // Import LoginForm
+import LoginForm from "../../components/form/LoginForm";
 import Slideshow from "../../components/Slideshow";
 import { decodeJwt } from "../../utils/jwtUtils";
 
@@ -11,7 +11,7 @@ const RegisterPage = () => {
   const location = useLocation(); 
   const navigate = useNavigate();
 
-  const isLogin = location.pathname === '/login'; // Check if the current path is /login
+  const isLogin = location.pathname === '/login'; 
 
   const [formData, setFormData] = useState(
     isLogin
@@ -22,7 +22,6 @@ const RegisterPage = () => {
   const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
-    // Clear form data when the path changes
     setFormData(
       isLogin
         ? { email: "", password: "" }
@@ -37,7 +36,6 @@ const RegisterPage = () => {
       ...formData,
       [name]: value
     });
-    // Clear previous error message on change
     setFormErrors({
       ...formErrors,
       [name]: ""
@@ -47,7 +45,6 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Client-side validation
     const errors = validateForm(formData);
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
@@ -62,13 +59,13 @@ const RegisterPage = () => {
         formData
       );
 
-      console.log('Server response:', response.data); // Add this line
+      console.log('Server response:', response.data);
 
       if (isLogin) {
-        const { userToken, sellerToken } = response.data; // Assuming the response contains the role
+        const { userToken, sellerToken } = response.data;
 
-        console.log('User token:', userToken); // Add this line
-        console.log('Seller token:', sellerToken); // Add this line
+        console.log('User token:', userToken);
+        console.log('Seller token:', sellerToken);
 
         localStorage.setItem("userToken", userToken);
         const token = localStorage.getItem("userToken");
@@ -76,20 +73,17 @@ const RegisterPage = () => {
         if (decodedToken.isSeller){
           localStorage.setItem("sellerToken", sellerToken);
         }
-        
-        
+
         console.log("Login successful:", response.data);
         navigate('/');
       } else {
         console.log("Registration successful:", response.data);
-        // Optionally handle registration success (e.g., show a success message, redirect)
+        navigate('/login'); // Redirect to login after successful registration
       }
     } catch (error) {
       console.error(isLogin ? "Error logging in user:" : "Error registering user:", error);
-      // Optionally handle error (e.g., show an error message)
     }
 
-    // Clear the form after submission
     setFormData(
       isLogin
         ? { email: "", password: "" }
@@ -97,7 +91,6 @@ const RegisterPage = () => {
     );
   };
 
-  // Basic client-side validation
   const validateForm = (data) => {
     const errors = {};
     if (!isLogin && !data.name.trim()) {

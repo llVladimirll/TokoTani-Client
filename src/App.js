@@ -14,6 +14,7 @@ import SellerPage from './pages/sellerRegister/page.jsx'
 import ProfilePage from './pages/profile/page.jsx';
 import AddProductPage from './pages/add-product/page.jsx';
 import SellerProductPage from './pages/seller-product/page.jsx';
+import EditProductPage from './pages/edit-product/page.jsx';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/seller/order' element={<OrderPage />} />
                 <Route path='/seller/add-product' element={<AddProductPage />} />
                 <Route path='/seller/product' element={<SellerProductPage />} />
+                <Route path='/seller/edit-product/:productId' element={<EditProductPage />} />
               </Routes>
             </div>
       </BrowserRouter>

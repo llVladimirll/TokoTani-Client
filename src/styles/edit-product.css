@@ -1,0 +1,109 @@
+.seller-navbar {
+    position: fixed; /* or absolute */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure full width */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
+  
+.add-product-page {
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Minimum viewport height */
+    background-color: #faf5e2;
+    overflow: hidden; /* Prevent scrolling of entire page */
+  }
+  
+  .content {
+    flex: 1; /* Expand to fill remaining space */
+    padding: 20px;
+    overflow-y: auto; 
+    margin-top: 60px; /* Adjust as needed to leave space for navbar */
+    
+  }
+  
+  
+
+  
+  /* Other styles remain the same */
+  
+  /* Product Form Styles */
+  .product-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .product-image {
+    display: flex;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  
+  .product-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .upload-box {
+    padding: 10px;
+    border: 2px dashed #87b840;
+    color: #87b840;
+  }
+  
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .product-details label {
+    margin: 10px 0 5px;
+  }
+  
+  .product-details input,
+  .product-details textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .product-details textarea {
+    height: 100px;
+  }
+  
+  .buttons {
+    text-align: right;
+  }
+  
+  .buttons .save-archive,
+  .buttons .save-display {
+    background-color: #87b840;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .buttons .save-display {
+    background-color: #ffc107;
+  }
+  
+  .buttons .save-archive:hover,
+  .buttons .save-display:hover {
+    opacity: 0.8;
+  }
+  
